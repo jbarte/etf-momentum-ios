@@ -21,10 +21,13 @@ private let supabase = SupabaseClient(
 extension SignInClient: DependencyKey {
     public static let liveValue = Self(
         currentUserEmail: {
-            // `session` refreshes an expired session and throws when there is
-            // none. Used instead of the authStateChanges stream, whose
-            // initialSession semantics change in supabase-swift v3.
-            try? await supabase.auth.session.user.email
+            // The LOCAL session, even if its access token has expired. Asking
+            // `auth.session` instead would try a network refresh, and offline
+            // that fails -- which would send a reader with a perfectly valid
+            // refresh token to the sign-in screen instead of their cached
+            // board. The board's own load refreshes the token, and reports a
+            // session the server has really rejected (ScoresError.signedOut).
+            supabase.auth.currentSession?.user.email
         },
         sendCode: { email in
             // Invite-only, as on the web (auth.js): never create an account.
@@ -44,9 +47,11 @@ extension ScoresClient: DependencyKey {
         fetchRecentScores: {
             do {
                 _ = try await supabase.auth.session
-            } catch {
+            } catch where isSignedOutError(error) {
                 throw ScoresError.signedOut
             }
+            // Any other error (offline, a timeout, a 5xx) propagates as it is,
+            // so the board falls back to the last good board it cached.
             // Same columns and order as auth.js's upgradeLeaderboard().
             return try await supabase.from("v_recent_scores")
                 .select("scan_id, run_at, region, gics_sector, level_score, change_score, data_score, sentiment_score, composite, rank")
@@ -56,4 +61,23 @@ extension ScoresClient: DependencyKey {
                 .value
         }
     )
+}
+
+/// Whether an error from `auth.session` means the reader is really signed out:
+/// there is no session, or the server rejected the refresh token. Only these
+/// may send the reader back to sign in, because that path deletes the cached
+/// board. A refresh that could not reach the server is NOT one of them -- that
+/// is the offline case the cached board exists for.
+func isSignedOutError(_ error: any Error) -> Bool {
+    guard let error = error as? AuthError else { return false }
+    switch error {
+    case .sessionMissing:
+        return true
+    case .api(_, _, _, let response):
+        // 4xx from the token endpoint: an invalid, revoked or reused refresh
+        // token. 429 is a rate limit, not a verdict on the session.
+        return (400..<500).contains(response.statusCode) && response.statusCode != 429
+    default:
+        return false
+    }
 }

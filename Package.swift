@@ -72,6 +72,11 @@ let package = Package(
             ]
         ),
 
+        // Pins which Supabase errors count as signed out (the rest keep the
+        // cached board). Builds supabase-swift, so it stays apart from the
+        // feature tests.
+        .testTarget(name: "SupabaseLiveTests", dependencies: ["SupabaseLive"]),
+
         // Composition root: the only target allowed to link SupabaseLive.
         .target(
             name: "AppFeature",

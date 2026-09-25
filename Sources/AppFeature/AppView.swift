@@ -20,12 +20,6 @@ public struct AppView: View {
             BoardView(model: model.board, email: email) {
                 Task { await model.session.signOut() }
             }
-            // The board found no usable session (e.g. a revoked refresh token).
-            .onChange(of: model.board.outcome) { _, outcome in
-                if outcome == .signedOut {
-                    Task { await model.session.sessionExpired() }
-                }
-            }
         }
     }
 }

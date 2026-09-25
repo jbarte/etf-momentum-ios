@@ -36,7 +36,11 @@ public final class SessionModel {
         if let email = await signInClient.currentUserEmail() {
             state = .signedIn(email: email)
         } else {
-            state = .signedOut
+            // No session at all -- signed out, or revoked while the app was
+            // closed. Forget any board cached for the previous session too.
+            // (An expired token offline still counts as a session: see
+            // SignInClient.currentUserEmail.)
+            await sessionEnded()
         }
     }
 

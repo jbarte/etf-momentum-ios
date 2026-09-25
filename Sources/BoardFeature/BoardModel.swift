@@ -34,6 +34,12 @@ public final class BoardModel {
     public private(set) var outcome: Outcome?
     public private(set) var isLoading = false
 
+    /// Runs when a load finds the session rejected. The app wires it to the
+    /// session model, so expiry is handled in the model layer, not by a view
+    /// watching `outcome`.
+    @ObservationIgnored
+    public var onSessionExpired: @MainActor () async -> Void = {}
+
     // Resolved when the model is created, so overrides must wrap the
     // construction of the model (see the previews and tests).
     @ObservationIgnored @Dependency(\.scoresClient) private var scoresClient
@@ -41,15 +47,55 @@ public final class BoardModel {
     @ObservationIgnored @Dependency(\.boardCacheClient) private var cache
     @ObservationIgnored @Dependency(\.date) private var date
 
+    /// The load in flight, if any. A second `load()` (pull-to-refresh during
+    /// the first load) waits for it instead of returning at once.
+    @ObservationIgnored private var loadTask: Task<Outcome?, Never>?
+    /// Bumped by `reset()`. A load that finishes after a reset belongs to the
+    /// previous session and must not write anything.
+    @ObservationIgnored private var generation = 0
+
     public init() {}
 
     /// Both fetches succeed -> `.live`, and cached. A rejected session ->
     /// `.signedOut`. Anything else -> the last good board as `.cached`, or
     /// `.failed` when there is none. Never guesses a preset or invents a band.
     public func load() async {
-        guard !isLoading else { return }
+        if let running = loadTask {
+            _ = await running.value
+            return
+        }
+        let generation = self.generation
         isLoading = true
-        defer { isLoading = false }
+        let task = Task { await fetch() }
+        loadTask = task
+        let result = await task.value
+
+        // A reset while this was running: the result belongs to the previous
+        // session. Leave the screen and the disk as the reset left them.
+        guard self.generation == generation else { return }
+        loadTask = nil
+        isLoading = false
+
+        switch result {
+        case nil:
+            // Cancelled: keep whatever is on screen.
+            break
+        case .live(let snapshot)?:
+            outcome = .live(snapshot)
+            try? await cache.save(snapshot)
+            // A sign-out landed while the save was in flight, and its clear
+            // may have run first: clear again, so gated rows never outlive it.
+            if self.generation != generation { await cache.clear() }
+        case .signedOut?:
+            outcome = .signedOut
+            await onSessionExpired()
+        case let other?:
+            outcome = other
+        }
+    }
+
+    /// One attempt. Returns nil when the request was cancelled.
+    private func fetch() async -> Outcome? {
         do {
             async let feed = feedClient.fetchConfig()
             async let rows = scoresClient.fetchRecentScores()
@@ -59,23 +105,32 @@ public final class BoardModel {
             let fetchedRows = try await rows
             let snapshot = BoardSnapshot(config: try await feed, rows: fetchedRows)
             guard snapshot.hasBoard else { throw BoardError.noScores }
-            try? await cache.save(snapshot)
-            outcome = .live(snapshot)
+            return .live(snapshot)
         } catch ScoresError.signedOut {
-            outcome = .signedOut
-        } catch is CancellationError {
-            // The view went away mid-request; keep whatever is on screen.
+            return .signedOut
         } catch {
-            if let cached = await cache.load() {
-                outcome = .cached(cached, reason: error.localizedDescription)
-            } else {
-                outcome = .failed(error.localizedDescription)
+            // URLSession reports cancellation as URLError(.cancelled), not
+            // CancellationError; neither is a failure to show.
+            if Task.isCancelled || error is CancellationError
+                || (error as? URLError)?.code == .cancelled {
+                return nil
             }
+            if let cached = await cache.load() {
+                return .cached(cached, reason: error.localizedDescription)
+            }
+            return .failed(error.localizedDescription)
         }
     }
 
     /// On sign-out: forget the board, on screen and on disk.
     public func reset() async {
+        // Invalidate and cancel the load in flight WITHOUT awaiting it: the
+        // reset can be triggered from inside that very load (a rejected
+        // session -> onSessionExpired -> sign-out -> reset).
+        generation += 1
+        loadTask?.cancel()
+        loadTask = nil
+        isLoading = false
         outcome = nil
         await cache.clear()
     }

@@ -18,13 +18,17 @@ extension BaseSuite {
             #expect(model.state == .signedIn(email: "me@example.invalid"))
         }
 
+        /// No session at launch (e.g. revoked while the app was closed) also
+        /// forgets the previous session's cached board.
         @Test(.dependency(\.signInClient, .signedOut))
-        func restoreWithNoSessionIsSignedOut() async {
-            let model = SessionModel()
+        func restoreWithNoSessionIsSignedOutAndRunsTheHook() async {
+            let hookRan = LockIsolated(false)
+            let model = SessionModel(onSignOut: { hookRan.setValue(true) })
 
             await model.restore()
 
             #expect(model.state == .signedOut)
+            #expect(hookRan.value)
         }
 
         @Test func sendCodeTrimsAndLowercasesTheEmail() async {

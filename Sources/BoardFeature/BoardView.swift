@@ -65,12 +65,12 @@ public struct BoardView: View {
                     Text("\(board.horizon.label): buy the top \(board.horizon.topN), hold down to rank \(board.exitRank) of \(board.universeSize).")
                 }
             }
-            .onAppear {
-                // Resolve an empty or retired saved preset to the one actually
-                // shown, so the segmented control has a selection.
-                let shown = board.horizon.key
-                if horizonKey != shown { horizonKey = shown }
-            }
+            // Resolve an empty or retired saved preset to the one actually
+            // shown, so the segmented control always has a selection -- on
+            // first appearance, and again if a refresh brings a config where
+            // the saved preset no longer exists.
+            .onAppear { horizonKey = board.horizon.key }
+            .onChange(of: board.horizon.key) { _, shown in horizonKey = shown }
         } else if case .failed(let message) = model.outcome {
             ContentUnavailableView {
                 Label("Couldn't load the board", systemImage: "exclamationmark.triangle")

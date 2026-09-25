@@ -21,6 +21,9 @@ public final class AppModel {
         self.board = board
         // Every sign-out, voluntary or not, forgets the board on screen and on
         // disk: it is signed-in-only data.
-        session = SessionModel(onSignOut: { await board.reset() })
+        let session = SessionModel(onSignOut: { await board.reset() })
+        self.session = session
+        // A load that finds the session rejected ends it.
+        board.onSessionExpired = { await session.sessionExpired() }
     }
 }

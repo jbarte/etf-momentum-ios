@@ -9,8 +9,9 @@ import DependenciesMacros
 /// needs Associated Domains, which a free developer account cannot enable.
 @DependencyClient
 public struct SignInClient: Sendable {
-    /// The signed-in user's email, refreshing an expired session if it can;
-    /// nil when there is no usable session.
+    /// The signed-in user's email from the session stored on the device, even
+    /// if its access token has expired -- so a reader who is offline still
+    /// reaches their cached board. nil when there is no stored session.
     public var currentUserEmail: @Sendable () async -> String? = { nil }
     /// Emails a one-time code. Never creates an account (invite-only).
     public var sendCode: @Sendable (_ email: String) async throws -> Void

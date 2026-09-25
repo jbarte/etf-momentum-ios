@@ -37,12 +37,90 @@ extension BaseSuite {
             $0.feedClient = .mock(config)
             $0.scoresClient = .failing(ScoresError.signedOut)
         })
-        func aRejectedSessionIsSignedOut() async {
+        func aRejectedSessionIsSignedOutAndReported() async {
+            let reported = LockIsolated(false)
             let model = BoardModel()
+            model.onSessionExpired = { reported.setValue(true) }
 
             await model.load()
 
             #expect(model.outcome == .signedOut)
+            #expect(reported.value)
+        }
+
+        /// A sign-out while a load is in flight: the load's result belongs to
+        /// the previous session and must write nothing, on screen or on disk.
+        @Test(.timeLimit(.minutes(1)))
+        func aSignOutDuringALoadDiscardsItsResult() async {
+            let gate = Gate()
+            let saved = LockIsolated(false)
+            let model = withDependencies {
+                $0.feedClient = .mock(config)
+                $0.scoresClient.fetchRecentScores = {
+                    await gate.wait()
+                    return rows
+                }
+                $0.boardCacheClient = .inMemory()
+                $0.boardCacheClient.save = { _ in saved.setValue(true) }
+            } operation: {
+                BoardModel()
+            }
+
+            let loading = Task { await model.load() }
+            while !model.isLoading { await Task.yield() }
+            await model.reset()
+            gate.open()
+            await loading.value
+
+            #expect(model.outcome == nil)
+            #expect(model.isLoading == false)
+            #expect(saved.value == false)
+        }
+
+        /// Pull-to-refresh during a load waits for that load instead of
+        /// returning at once, and does not start a second request.
+        @Test(.timeLimit(.minutes(1)))
+        func aRefreshDuringALoadFollowsTheRunningRequest() async {
+            let gate = Gate()
+            let fetches = LockIsolated(0)
+            let model = withDependencies {
+                $0.feedClient = .mock(config)
+                $0.scoresClient.fetchRecentScores = {
+                    fetches.withValue { $0 += 1 }
+                    await gate.wait()
+                    return rows
+                }
+                $0.boardCacheClient = .inMemory()
+            } operation: {
+                BoardModel()
+            }
+
+            let first = Task { await model.load() }
+            while !model.isLoading { await Task.yield() }
+            let refresh = Task { await model.load() }
+            await Task.yield()
+            gate.open()
+            await first.value
+            await refresh.value
+
+            #expect(fetches.value == 1)
+            #expect(model.outcome == .live(snapshot))
+        }
+
+        /// URLSession reports cancellation as URLError(.cancelled). That is the
+        /// view going away mid-request, not a failure to show.
+        @Test(.dependencies {
+            $0.feedClient = .mock(config)
+            $0.scoresClient = .failing(URLError(.cancelled))
+            $0.boardCacheClient = .inMemory()
+        })
+        func aCancelledRequestLeavesTheOutcomeAlone() async {
+            let model = BoardModel()
+
+            await model.load()
+
+            #expect(model.outcome == nil)
+            #expect(model.isLoading == false)
         }
 
         // A feed error at the same moment must not mask the rejected session,
@@ -163,6 +241,23 @@ extension BaseSuite {
             }
 
             #expect(model.outcome != nil)
+        }
+    }
+}
+
+/// Holds every request until `open()`, then releases ALL of them at once. A
+/// regression that starts a second request therefore makes a test fail on
+/// its assertions rather than hang waiting for a release that never comes.
+private final class Gate: Sendable {
+    private let isOpen = LockIsolated(false)
+
+    func open() {
+        isOpen.setValue(true)
+    }
+
+    func wait() async {
+        while !isOpen.value {
+            await Task.yield()
         }
     }
 }

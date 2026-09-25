@@ -81,7 +81,7 @@ public func buildBoard(rows: [ScoreRow], config: FeedConfig, horizon: Horizon) -
             trajectory: history.trajectory(for: row.key).trajectory,
             setup: setupForRank(row.rank, horizon: horizon, universeSize: universeSize),
             inBuyBand: inBuyBand(row.rank, horizon: horizon),
-            section: section(for: row.rank, topN: horizon.topN, exitRank: exitRank)
+            section: section(for: row.rank, horizon: horizon, universeSize: universeSize)
         )
     }
     // Rank ascending, unranked last -- pandas sort_values puts NaN last.
@@ -90,11 +90,15 @@ public func buildBoard(rows: [ScoreRow], config: FeedConfig, horizon: Horizon) -
                  horizon: horizon, universeSize: universeSize, exitRank: exitRank, rows: sorted)
 }
 
-func section(for rank: Double?, topN: Int, exitRank: Int) -> BandSection {
-    guard let rank else { return .out }
-    if rank <= Double(topN) { return .buy }
-    if rank <= Double(exitRank) { return .hold }
-    return .out
+/// Which band a rank sits in, derived from the band rule itself
+/// (`inBuyBand`, `setupForRank`) rather than a second copy of it -- so the cut
+/// lines can never be drawn somewhere the Enter/Exit badges disagree with.
+/// Pinned against the Python fixture in BandTests.
+func section(for rank: Double?, horizon: Horizon, universeSize: Int) -> BandSection {
+    guard rank != nil else { return .out }
+    if inBuyBand(rank, horizon: horizon) { return .buy }
+    if setupForRank(rank, horizon: horizon, universeSize: universeSize) == .exit { return .out }
+    return .hold
 }
 
 /// The web's band cut lines (index.html.j2's insertCutRow), same wording.

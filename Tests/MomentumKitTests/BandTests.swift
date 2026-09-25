@@ -21,6 +21,22 @@ struct BandTests {
         }
     }
 
+    /// The cut lines are drawn from `section`, so it must agree with the
+    /// Python band everywhere: buy exactly when in the buy band, out exactly
+    /// when past the exit rank.
+    @Test func sectionsAgreeWithTheFixture() throws {
+        let fixture = try BandFixture.load()
+        for c in fixture.band {
+            let h = Horizon(key: c.horizon, label: c.horizon, rebalance: "",
+                            topN: c.top_n, bufferFrac: c.buffer_frac)
+            for r in c.ranks {
+                let want: BandSection = r.in_buy_band ? .buy : (r.setup == .exit ? .out : .hold)
+                #expect(section(for: r.rank, horizon: h, universeSize: c.universe_size) == want,
+                        "\(c.horizon) n=\(c.universe_size) rank \(r.rank)")
+            }
+        }
+    }
+
     @Test func missingRankHasNoSetupAndIsNotInTheBand() {
         let h = Horizon(key: "medium", label: "Medium", rebalance: "M", topN: 4, bufferFrac: 5.0 / 18)
         #expect(setupForRank(nil, horizon: h, universeSize: 18) == nil)
