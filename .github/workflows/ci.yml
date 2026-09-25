@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Daily, so a rule or preset change upstream turns this red even when
+  # nothing here was pushed.
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Every module's tests
+        run: swift test
+
+      - name: Parity fixture matches the published one
+        run: scripts/check-fixture.sh
+
+      - name: App builds for the simulator
+        # -skipMacroValidation: CI has no one to click "Trust & Enable" for
+        # swift-dependencies' macros.
+        run: |
+          xcodebuild build -project App/ETFMomentum.xcodeproj -scheme ETFMomentum \
+            -destination 'generic/platform=iOS Simulator' \
+            -skipMacroValidation CODE_SIGNING_ALLOWED=NO
