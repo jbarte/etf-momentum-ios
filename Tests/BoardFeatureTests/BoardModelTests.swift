@@ -1,0 +1,172 @@
+import BoardCacheClient
+import BoardFeature
+import Dependencies
+import DependenciesTestSupport
+import FeedClient
+import Foundation
+import MomentumKit
+import ScoresClient
+import Testing
+
+private let config = SampleData.config
+private let rows = SampleData.scores(now: Date(timeIntervalSince1970: 1_790_000_000))
+private let snapshot = BoardSnapshot(config: config, rows: rows)
+
+extension BaseSuite {
+    @MainActor
+    @Suite
+    struct BoardModelTests {
+        @Test func aSuccessfulLoadIsLiveAndCached() async {
+            let saved = LockIsolated<BoardSnapshot?>(nil)
+            let model = withDependencies {
+                $0.feedClient = .mock(config)
+                $0.scoresClient = .mock(rows)
+                $0.boardCacheClient.save = { saved.setValue($0) }
+            } operation: {
+                BoardModel()
+            }
+
+            await model.load()
+
+            #expect(model.outcome == .live(snapshot))
+            #expect(saved.value == snapshot)
+            #expect(model.isLoading == false)
+        }
+
+        @Test(.dependencies {
+            $0.feedClient = .mock(config)
+            $0.scoresClient = .failing(ScoresError.signedOut)
+        })
+        func aRejectedSessionIsSignedOut() async {
+            let model = BoardModel()
+
+            await model.load()
+
+            #expect(model.outcome == .signedOut)
+        }
+
+        // A feed error at the same moment must not mask the rejected session,
+        // or the reader would sit on a stale cached board instead of signing in.
+        @Test(.dependencies {
+            $0.feedClient = .failing(FeedError.http(status: 503))
+            $0.scoresClient = .failing(ScoresError.signedOut)
+        })
+        func aRejectedSessionWinsOverAFeedError() async {
+            let model = BoardModel()
+
+            await model.load()
+
+            #expect(model.outcome == .signedOut)
+        }
+
+        @Test(.dependencies {
+            $0.feedClient = .mock(config)
+            $0.scoresClient = .failing(TestError())
+            $0.boardCacheClient = .inMemory(snapshot)
+        })
+        func aFailedFetchFallsBackToTheLastGoodBoard() async {
+            let model = BoardModel()
+
+            await model.load()
+
+            #expect(model.outcome == .cached(snapshot, reason: TestError().localizedDescription))
+            #expect(model.cachedReason == TestError().localizedDescription)
+        }
+
+        @Test(.dependencies {
+            $0.feedClient = .failing(FeedError.noConfig(schemaVersion: 1))
+            $0.scoresClient = .mock(rows)
+            $0.boardCacheClient = .inMemory()
+        })
+        func noConfigAndNoCacheIsAFailure() async {
+            let model = BoardModel()
+
+            await model.load()
+
+            #expect(model.outcome == .failed(FeedError.noConfig(schemaVersion: 1).localizedDescription))
+            #expect(model.board(horizonKey: nil) == nil)
+        }
+
+        @Test(.dependencies {
+            $0.feedClient = .mock(config)
+            $0.scoresClient = .mock([])
+            $0.boardCacheClient = .inMemory()
+        })
+        func anEmptyResponseIsAFailureNotABlankBoard() async {
+            let model = BoardModel()
+
+            await model.load()
+
+            #expect(model.outcome == .failed(BoardError.noScores.localizedDescription))
+        }
+
+        @Test(.dependencies {
+            $0.feedClient = .mock(config)
+            $0.scoresClient = .mock(rows)
+            $0.boardCacheClient = .inMemory()
+        })
+        func theBoardFollowsTheSavedPresetAndFallsBackToTheDefault() async throws {
+            let model = BoardModel()
+            await model.load()
+
+            #expect(try #require(model.board(horizonKey: "long")).horizon.key == "long")
+            #expect(try #require(model.board(horizonKey: "retired")).horizon.key == config.defaultHorizon)
+            #expect(try #require(model.board(horizonKey: nil)).rows.count == config.universe.count)
+        }
+
+        @Test func stalenessReadsTheDateDependency() async throws {
+            let scanned = Date(timeIntervalSince1970: 1_790_000_000)
+            func model(now: Date) -> BoardModel {
+                withDependencies {
+                    $0.feedClient = .mock(config)
+                    $0.scoresClient = .mock(SampleData.scores(now: scanned))
+                    $0.boardCacheClient = .inMemory()
+                    $0.date.now = now
+                } operation: {
+                    BoardModel()
+                }
+            }
+            let fresh = model(now: scanned)
+            let stale = model(now: scanned.addingTimeInterval(3 * 86_400))
+            await fresh.load()
+            await stale.load()
+
+            #expect(fresh.isStale(try #require(fresh.board(horizonKey: nil))) == false)
+            #expect(stale.isStale(try #require(stale.board(horizonKey: nil))) == true)
+        }
+
+        @Test func resetForgetsTheBoardAndClearsTheCache() async {
+            let cleared = LockIsolated(false)
+            let model = withDependencies {
+                $0.feedClient = .mock(config)
+                $0.scoresClient = .mock(rows)
+                $0.boardCacheClient = .inMemory()
+                $0.boardCacheClient.clear = { cleared.setValue(true) }
+            } operation: {
+                BoardModel()
+            }
+            await model.load()
+
+            await model.reset()
+
+            #expect(model.outcome == nil)
+            #expect(cleared.value)
+        }
+
+        // No override: the test values are unimplemented, so calling them is
+        // reported as an issue. This proves the tripwire works.
+        @Test func unstubbedClientsReportIssues() async {
+            let model = BoardModel()
+
+            await withKnownIssue {
+                await model.load()
+            }
+
+            #expect(model.outcome != nil)
+        }
+    }
+}
+
+private struct TestError: LocalizedError {
+    var errorDescription: String? { "The network connection was lost." }
+}

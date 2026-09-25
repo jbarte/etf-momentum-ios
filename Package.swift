@@ -25,6 +25,32 @@ let package = Package(
             name: "SignInFeatureTests",
             dependencies: ["SignInClient", "SignInFeature", .dependenciesTestSupport]
         ),
+
+        // Board: clients carry their small live values inline.
+        .target(name: "ScoresClient", dependencies: ["MomentumKit", .dependencies, .dependenciesMacros]),
+        .target(name: "FeedClient", dependencies: ["MomentumKit", .dependencies, .dependenciesMacros]),
+        .target(name: "BoardCacheClient", dependencies: ["MomentumKit", .dependencies, .dependenciesMacros]),
+        .target(
+            name: "BoardFeature",
+            dependencies: [
+                "BoardCacheClient",
+                "FeedClient",
+                "MomentumKit",
+                "ScoresClient",
+                .dependencies,
+            ]
+        ),
+        .testTarget(
+            name: "BoardFeatureTests",
+            dependencies: [
+                "BoardCacheClient",
+                "BoardFeature",
+                "FeedClient",
+                "MomentumKit",
+                "ScoresClient",
+                .dependenciesTestSupport,
+            ]
+        ),
     ]
 )
 
