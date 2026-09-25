@@ -5,8 +5,15 @@ import PackageDescription
 let package = Package(
     name: "ETFMomentum",
     platforms: [.iOS(.v18), .macOS(.v15)],
+    products: [
+        // The app links only the composition root.
+        .library(name: "AppFeature", targets: ["AppFeature"]),
+    ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.17.1"),
+        // v3 is unreleased and changes verifyOTP's return type and the
+        // initialSession semantics; stay on 2.x until it ships and is read.
+        .package(url: "https://github.com/supabase/supabase-swift.git", .upToNextMajor(from: "2.55.2")),
     ],
     targets: [
         // The board rules, mirroring sector_momentum's Python. No dependencies.
@@ -49,6 +56,34 @@ let package = Package(
                 "MomentumKit",
                 "ScoresClient",
                 .dependenciesTestSupport,
+            ]
+        ),
+
+        // The live SignInClient and ScoresClient: the only module that builds
+        // supabase-swift. They share one SupabaseClient, because the signed-in
+        // session is what authorises the scores query.
+        .target(
+            name: "SupabaseLive",
+            dependencies: [
+                "ScoresClient",
+                "SignInClient",
+                .dependencies,
+                .product(name: "Supabase", package: "supabase-swift"),
+            ]
+        ),
+
+        // Composition root: the only target allowed to link SupabaseLive.
+        .target(
+            name: "AppFeature",
+            dependencies: [
+                "BoardCacheClient",
+                "BoardFeature",
+                "FeedClient",
+                "ScoresClient",
+                "SignInClient",
+                "SignInFeature",
+                "SupabaseLive",
+                .dependencies,
             ]
         ),
     ]
