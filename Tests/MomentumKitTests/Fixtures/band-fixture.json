@@ -1,0 +1,2933 @@
+{
+  "band": [
+    {
+      "buffer_frac": 0.277778,
+      "exit_rank": 5,
+      "horizon": "medium",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 4.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 4,
+      "universe_size": 5
+    },
+    {
+      "buffer_frac": 0.277778,
+      "exit_rank": 7,
+      "horizon": "medium",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 4.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 4,
+      "universe_size": 10
+    },
+    {
+      "buffer_frac": 0.277778,
+      "exit_rank": 8,
+      "horizon": "medium",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 4.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 4,
+      "universe_size": 13
+    },
+    {
+      "buffer_frac": 0.277778,
+      "exit_rank": 9,
+      "horizon": "medium",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 4.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 17.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 18.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 4,
+      "universe_size": 18
+    },
+    {
+      "buffer_frac": 0.277778,
+      "exit_rank": 10,
+      "horizon": "medium",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 4.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 17.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 18.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 19.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 20.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 4,
+      "universe_size": 20
+    },
+    {
+      "buffer_frac": 0.277778,
+      "exit_rank": 11,
+      "horizon": "medium",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 4.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 17.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 18.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 19.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 20.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 21.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 22.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 23.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 24.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 25.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 4,
+      "universe_size": 25
+    },
+    {
+      "buffer_frac": 0.444444,
+      "exit_rank": 7,
+      "horizon": "long",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 5.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 5,
+      "universe_size": 5
+    },
+    {
+      "buffer_frac": 0.444444,
+      "exit_rank": 9,
+      "horizon": "long",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 5.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 5,
+      "universe_size": 10
+    },
+    {
+      "buffer_frac": 0.444444,
+      "exit_rank": 11,
+      "horizon": "long",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 5.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 5,
+      "universe_size": 13
+    },
+    {
+      "buffer_frac": 0.444444,
+      "exit_rank": 13,
+      "horizon": "long",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 5.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 17.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 18.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 5,
+      "universe_size": 18
+    },
+    {
+      "buffer_frac": 0.444444,
+      "exit_rank": 14,
+      "horizon": "long",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 5.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 17.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 18.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 19.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 20.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 5,
+      "universe_size": 20
+    },
+    {
+      "buffer_frac": 0.444444,
+      "exit_rank": 16,
+      "horizon": "long",
+      "ranks": [
+        {
+          "in_buy_band": true,
+          "rank": 1.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 2.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 3.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 4.5,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": true,
+          "rank": 5.0,
+          "setup": "entry"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 5.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 6.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 7.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 8.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 9.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 10.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 11.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 12.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 13.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 14.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 15.5,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.0,
+          "setup": null
+        },
+        {
+          "in_buy_band": false,
+          "rank": 16.5,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 17.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 18.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 19.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 20.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 21.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 22.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 23.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 24.0,
+          "setup": "exit"
+        },
+        {
+          "in_buy_band": false,
+          "rank": 25.0,
+          "setup": "exit"
+        }
+      ],
+      "top_n": 5,
+      "universe_size": 25
+    }
+  ],
+  "boards": [
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "+1.0",
+          "slope": -0.5,
+          "trajectory": "up"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "-1.0",
+          "slope": 0.2,
+          "trajectory": "flat"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.3,
+          "trajectory": "down"
+        }
+      },
+      "name": "steady climb",
+      "rows": [
+        {
+          "change_score": 0.71,
+          "composite": 0.71,
+          "data_score": 0.71,
+          "gics_sector": "Alpha",
+          "level_score": 0.71,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Bravo",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.81,
+          "composite": 0.81,
+          "data_score": 0.81,
+          "gics_sector": "Charlie",
+          "level_score": 0.81,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Alpha",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Bravo",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Charlie",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.83,
+          "composite": 0.83,
+          "data_score": 0.83,
+          "gics_sector": "Alpha",
+          "level_score": 0.83,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.93,
+          "composite": 0.93,
+          "data_score": 0.93,
+          "gics_sector": "Bravo",
+          "level_score": 0.93,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.73,
+          "composite": 0.73,
+          "data_score": 0.73,
+          "gics_sector": "Charlie",
+          "level_score": 0.73,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.84,
+          "composite": 0.84,
+          "data_score": 0.84,
+          "gics_sector": "Alpha",
+          "level_score": 0.84,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.42
+        },
+        {
+          "change_score": 0.94,
+          "composite": 0.94,
+          "data_score": 0.94,
+          "gics_sector": "Bravo",
+          "level_score": 0.94,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.47
+        },
+        {
+          "change_score": 0.74,
+          "composite": 0.74,
+          "data_score": 0.74,
+          "gics_sector": "Charlie",
+          "level_score": 0.74,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.37
+        },
+        {
+          "change_score": 0.95,
+          "composite": 0.95,
+          "data_score": 0.95,
+          "gics_sector": "Alpha",
+          "level_score": 0.95,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.85,
+          "composite": 0.85,
+          "data_score": 0.85,
+          "gics_sector": "Bravo",
+          "level_score": 0.85,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.75,
+          "composite": 0.75,
+          "data_score": 0.75,
+          "gics_sector": "Charlie",
+          "level_score": 0.75,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "+1.0",
+          "slope": -1.0,
+          "trajectory": "up"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "-1.0",
+          "slope": 1.0,
+          "trajectory": "down"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "weekend replay",
+      "rows": [
+        {
+          "change_score": 0.81,
+          "composite": 0.81,
+          "data_score": 0.81,
+          "gics_sector": "Alpha",
+          "level_score": 0.81,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Bravo",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.71,
+          "composite": 0.71,
+          "data_score": 0.71,
+          "gics_sector": "Charlie",
+          "level_score": 0.71,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "nothing moved",
+      "rows": [
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "-1.0",
+          "slope": 1.0,
+          "trajectory": "down"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "+1.0",
+          "slope": -1.0,
+          "trajectory": "up"
+        },
+        "THEME|Delta": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "theme joins",
+      "rows": [
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Alpha",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.81,
+          "composite": 0.81,
+          "data_score": 0.81,
+          "gics_sector": "Bravo",
+          "level_score": 0.81,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Alpha",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Bravo",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Delta",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "composite only",
+      "rows": [
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Alpha",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.81,
+          "composite": 0.81,
+          "data_score": 0.81,
+          "gics_sector": "Bravo",
+          "level_score": 0.81,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.71,
+          "composite": 0.71,
+          "data_score": 0.71,
+          "gics_sector": "Charlie",
+          "level_score": 0.71,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "-0.5",
+          "slope": 0.5,
+          "trajectory": "down"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "+0.5",
+          "slope": -0.5,
+          "trajectory": "up"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "tied ranks",
+      "rows": [
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Alpha",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.81,
+          "composite": 0.81,
+          "data_score": 0.81,
+          "gics_sector": "Bravo",
+          "level_score": 0.81,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.71,
+          "composite": 0.71,
+          "data_score": 0.71,
+          "gics_sector": "Charlie",
+          "level_score": 0.71,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.87,
+          "composite": 0.87,
+          "data_score": 0.87,
+          "gics_sector": "Alpha",
+          "level_score": 0.87,
+          "rank": 1.5,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.435
+        },
+        {
+          "change_score": 0.87,
+          "composite": 0.87,
+          "data_score": 0.87,
+          "gics_sector": "Bravo",
+          "level_score": 0.87,
+          "rank": 1.5,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.435
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "+2.0",
+          "slope": -2.0,
+          "trajectory": "strong_up"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "-2.0",
+          "slope": 2.0,
+          "trajectory": "strong_down"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "big moves",
+      "rows": [
+        {
+          "change_score": 0.11,
+          "composite": 0.11,
+          "data_score": 0.11,
+          "gics_sector": "Alpha",
+          "level_score": 0.11,
+          "rank": 9.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Bravo",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.51,
+          "composite": 0.51,
+          "data_score": 0.51,
+          "gics_sector": "Charlie",
+          "level_score": 0.51,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.32,
+          "composite": 0.32,
+          "data_score": 0.32,
+          "gics_sector": "Alpha",
+          "level_score": 0.32,
+          "rank": 7.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.16
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Bravo",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.52,
+          "composite": 0.52,
+          "data_score": 0.52,
+          "gics_sector": "Charlie",
+          "level_score": 0.52,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.26
+        },
+        {
+          "change_score": 0.53,
+          "composite": 0.53,
+          "data_score": 0.53,
+          "gics_sector": "Alpha",
+          "level_score": 0.53,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.53,
+          "composite": 0.53,
+          "data_score": 0.53,
+          "gics_sector": "Bravo",
+          "level_score": 0.53,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.53,
+          "composite": 0.53,
+          "data_score": 0.53,
+          "gics_sector": "Charlie",
+          "level_score": 0.53,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.74,
+          "composite": 0.74,
+          "data_score": 0.74,
+          "gics_sector": "Alpha",
+          "level_score": 0.74,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.37
+        },
+        {
+          "change_score": 0.34,
+          "composite": 0.34,
+          "data_score": 0.34,
+          "gics_sector": "Bravo",
+          "level_score": 0.34,
+          "rank": 7.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.17
+        },
+        {
+          "change_score": 0.54,
+          "composite": 0.54,
+          "data_score": 0.54,
+          "gics_sector": "Charlie",
+          "level_score": 0.54,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.27
+        },
+        {
+          "change_score": 0.95,
+          "composite": 0.95,
+          "data_score": 0.95,
+          "gics_sector": "Alpha",
+          "level_score": 0.95,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.15,
+          "composite": 0.15,
+          "data_score": 0.15,
+          "gics_sector": "Bravo",
+          "level_score": 0.15,
+          "rank": 9.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.55,
+          "composite": 0.55,
+          "data_score": 0.55,
+          "gics_sector": "Charlie",
+          "level_score": 0.55,
+          "rank": 5.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "+1.0",
+          "slope": -1.0,
+          "trajectory": "up"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "-1.0",
+          "slope": 0.5,
+          "trajectory": "down"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.5,
+          "trajectory": "down"
+        }
+      },
+      "name": "six raw scans, three distinct",
+      "rows": [
+        {
+          "change_score": 0.71,
+          "composite": 0.71,
+          "data_score": 0.71,
+          "gics_sector": "Alpha",
+          "level_score": 0.71,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Bravo",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.81,
+          "composite": 0.81,
+          "data_score": 0.81,
+          "gics_sector": "Charlie",
+          "level_score": 0.81,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Alpha",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Bravo",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.93,
+          "composite": 0.93,
+          "data_score": 0.93,
+          "gics_sector": "Alpha",
+          "level_score": 0.93,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.83,
+          "composite": 0.83,
+          "data_score": 0.83,
+          "gics_sector": "Bravo",
+          "level_score": 0.83,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.73,
+          "composite": 0.73,
+          "data_score": 0.73,
+          "gics_sector": "Charlie",
+          "level_score": 0.73,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.93,
+          "composite": 0.93,
+          "data_score": 0.93,
+          "gics_sector": "Alpha",
+          "level_score": 0.93,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.465
+        },
+        {
+          "change_score": 0.83,
+          "composite": 0.83,
+          "data_score": 0.83,
+          "gics_sector": "Bravo",
+          "level_score": 0.83,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.415
+        },
+        {
+          "change_score": 0.73,
+          "composite": 0.73,
+          "data_score": 0.73,
+          "gics_sector": "Charlie",
+          "level_score": 0.73,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.365
+        },
+        {
+          "change_score": 0.93,
+          "composite": 0.93,
+          "data_score": 0.93,
+          "gics_sector": "Alpha",
+          "level_score": 0.93,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.83,
+          "composite": 0.83,
+          "data_score": 0.83,
+          "gics_sector": "Bravo",
+          "level_score": 0.83,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.73,
+          "composite": 0.73,
+          "data_score": 0.73,
+          "gics_sector": "Charlie",
+          "level_score": 0.73,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.93,
+          "composite": 0.93,
+          "data_score": 0.93,
+          "gics_sector": "Alpha",
+          "level_score": 0.93,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-06T11:00:00+00:00",
+          "scan_id": 6,
+          "sentiment_score": 0.465
+        },
+        {
+          "change_score": 0.83,
+          "composite": 0.83,
+          "data_score": 0.83,
+          "gics_sector": "Bravo",
+          "level_score": 0.83,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-06T11:00:00+00:00",
+          "scan_id": 6,
+          "sentiment_score": 0.415
+        },
+        {
+          "change_score": 0.73,
+          "composite": 0.73,
+          "data_score": 0.73,
+          "gics_sector": "Charlie",
+          "level_score": 0.73,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-06T11:00:00+00:00",
+          "scan_id": 6,
+          "sentiment_score": 0.365
+        }
+      ]
+    },
+    {
+      "expected": {
+        "THEME|Alpha": {
+          "delta_rank": "+1.0",
+          "slope": 0.0,
+          "trajectory": "flat"
+        },
+        "THEME|Bravo": {
+          "delta_rank": "-1.0",
+          "slope": 0.0,
+          "trajectory": "flat"
+        },
+        "THEME|Charlie": {
+          "delta_rank": "\u2014",
+          "slope": 0.0,
+          "trajectory": "flat"
+        }
+      },
+      "name": "six distinct scans",
+      "rows": [
+        {
+          "change_score": 0.11,
+          "composite": 0.11,
+          "data_score": 0.11,
+          "gics_sector": "Alpha",
+          "level_score": 0.11,
+          "rank": 9.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.91,
+          "composite": 0.91,
+          "data_score": 0.91,
+          "gics_sector": "Bravo",
+          "level_score": 0.91,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.71,
+          "composite": 0.71,
+          "data_score": 0.71,
+          "gics_sector": "Charlie",
+          "level_score": 0.71,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-01T11:00:00+00:00",
+          "scan_id": 1,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.92,
+          "composite": 0.92,
+          "data_score": 0.92,
+          "gics_sector": "Alpha",
+          "level_score": 0.92,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.46
+        },
+        {
+          "change_score": 0.82,
+          "composite": 0.82,
+          "data_score": 0.82,
+          "gics_sector": "Bravo",
+          "level_score": 0.82,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.41
+        },
+        {
+          "change_score": 0.72,
+          "composite": 0.72,
+          "data_score": 0.72,
+          "gics_sector": "Charlie",
+          "level_score": 0.72,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-02T11:00:00+00:00",
+          "scan_id": 2,
+          "sentiment_score": 0.36
+        },
+        {
+          "change_score": 0.83,
+          "composite": 0.83,
+          "data_score": 0.83,
+          "gics_sector": "Alpha",
+          "level_score": 0.83,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.93,
+          "composite": 0.93,
+          "data_score": 0.93,
+          "gics_sector": "Bravo",
+          "level_score": 0.93,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.73,
+          "composite": 0.73,
+          "data_score": 0.73,
+          "gics_sector": "Charlie",
+          "level_score": 0.73,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-03T11:00:00+00:00",
+          "scan_id": 3,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.94,
+          "composite": 0.94,
+          "data_score": 0.94,
+          "gics_sector": "Alpha",
+          "level_score": 0.94,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.47
+        },
+        {
+          "change_score": 0.84,
+          "composite": 0.84,
+          "data_score": 0.84,
+          "gics_sector": "Bravo",
+          "level_score": 0.84,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.42
+        },
+        {
+          "change_score": 0.74,
+          "composite": 0.74,
+          "data_score": 0.74,
+          "gics_sector": "Charlie",
+          "level_score": 0.74,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-04T11:00:00+00:00",
+          "scan_id": 4,
+          "sentiment_score": 0.37
+        },
+        {
+          "change_score": 0.85,
+          "composite": 0.85,
+          "data_score": 0.85,
+          "gics_sector": "Alpha",
+          "level_score": 0.85,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.95,
+          "composite": 0.95,
+          "data_score": 0.95,
+          "gics_sector": "Bravo",
+          "level_score": 0.95,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.75,
+          "composite": 0.75,
+          "data_score": 0.75,
+          "gics_sector": "Charlie",
+          "level_score": 0.75,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-05T11:00:00+00:00",
+          "scan_id": 5,
+          "sentiment_score": null
+        },
+        {
+          "change_score": 0.96,
+          "composite": 0.96,
+          "data_score": 0.96,
+          "gics_sector": "Alpha",
+          "level_score": 0.96,
+          "rank": 1.0,
+          "region": "THEME",
+          "run_at": "2026-01-06T11:00:00+00:00",
+          "scan_id": 6,
+          "sentiment_score": 0.48
+        },
+        {
+          "change_score": 0.86,
+          "composite": 0.86,
+          "data_score": 0.86,
+          "gics_sector": "Bravo",
+          "level_score": 0.86,
+          "rank": 2.0,
+          "region": "THEME",
+          "run_at": "2026-01-06T11:00:00+00:00",
+          "scan_id": 6,
+          "sentiment_score": 0.43
+        },
+        {
+          "change_score": 0.76,
+          "composite": 0.76,
+          "data_score": 0.76,
+          "gics_sector": "Charlie",
+          "level_score": 0.76,
+          "rank": 3.0,
+          "region": "THEME",
+          "run_at": "2026-01-06T11:00:00+00:00",
+          "scan_id": 6,
+          "sentiment_score": 0.38
+        }
+      ]
+    }
+  ],
+  "fixture_version": 1,
+  "series": [
+    {
+      "ranks": [
+        13.2,
+        11.6,
+        10.0,
+        8.4,
+        6.8
+      ],
+      "slope": -1.6,
+      "trajectory": "strong_up"
+    },
+    {
+      "ranks": [
+        13.0,
+        11.5,
+        10.0,
+        8.5,
+        7.0
+      ],
+      "slope": -1.5,
+      "trajectory": "strong_up"
+    },
+    {
+      "ranks": [
+        12.8,
+        11.4,
+        10.0,
+        8.6,
+        7.2
+      ],
+      "slope": -1.4,
+      "trajectory": "up"
+    },
+    {
+      "ranks": [
+        10.7,
+        10.35,
+        10.0,
+        9.65,
+        9.3
+      ],
+      "slope": -0.35,
+      "trajectory": "up"
+    },
+    {
+      "ranks": [
+        10.6,
+        10.3,
+        10.0,
+        9.7,
+        9.4
+      ],
+      "slope": -0.3,
+      "trajectory": "up"
+    },
+    {
+      "ranks": [
+        10.5,
+        10.25,
+        10.0,
+        9.75,
+        9.5
+      ],
+      "slope": -0.25,
+      "trajectory": "flat"
+    },
+    {
+      "ranks": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "slope": 0.0,
+      "trajectory": "flat"
+    },
+    {
+      "ranks": [
+        9.5,
+        9.75,
+        10.0,
+        10.25,
+        10.5
+      ],
+      "slope": 0.25,
+      "trajectory": "flat"
+    },
+    {
+      "ranks": [
+        9.4,
+        9.7,
+        10.0,
+        10.3,
+        10.6
+      ],
+      "slope": 0.3,
+      "trajectory": "down"
+    },
+    {
+      "ranks": [
+        9.3,
+        9.65,
+        10.0,
+        10.35,
+        10.7
+      ],
+      "slope": 0.35,
+      "trajectory": "down"
+    },
+    {
+      "ranks": [
+        7.2,
+        8.6,
+        10.0,
+        11.4,
+        12.8
+      ],
+      "slope": 1.4,
+      "trajectory": "down"
+    },
+    {
+      "ranks": [
+        7.0,
+        8.5,
+        10.0,
+        11.5,
+        13.0
+      ],
+      "slope": 1.5,
+      "trajectory": "strong_down"
+    },
+    {
+      "ranks": [
+        6.8,
+        8.4,
+        10.0,
+        11.6,
+        13.2
+      ],
+      "slope": 1.6,
+      "trajectory": "strong_down"
+    },
+    {
+      "ranks": [
+        3.0,
+        2.0,
+        2.0,
+        2.0,
+        1.502
+      ],
+      "slope": -0.3,
+      "trajectory": "up"
+    },
+    {
+      "ranks": [
+        4.0,
+        2.0
+      ],
+      "slope": -2.0,
+      "trajectory": "strong_up"
+    },
+    {
+      "ranks": [
+        6.0
+      ],
+      "slope": 0.0,
+      "trajectory": "flat"
+    }
+  ]
+}

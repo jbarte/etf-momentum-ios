@@ -1,0 +1,561 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-09-25T11:39:00Z",
+  "scan_id": 195,
+  "scan_date": "2026-09-18 11:05 UTC",
+  "lagged": true,
+  "themes": [
+    {
+      "theme": "Shipping",
+      "composite": 1.95305,
+      "level": 2.17373,
+      "change": 1.73237,
+      "data": 1.95305,
+      "sentiment": 0.416601,
+      "rank": 1,
+      "delta_rank": null,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Cybersecurity",
+      "composite": 1.00111,
+      "level": 1.42312,
+      "change": 0.579093,
+      "data": 1.00111,
+      "sentiment": -0.526036,
+      "rank": 2,
+      "delta_rank": 1.0,
+      "trajectory": "up",
+      "setup": null
+    },
+    {
+      "theme": "AgTech & Food Innovation",
+      "composite": 0.752054,
+      "level": 0.515986,
+      "change": 0.988122,
+      "data": 0.752054,
+      "sentiment": 0.294369,
+      "rank": 3,
+      "delta_rank": -1.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Gold & Precious Metals Miners",
+      "composite": 0.466563,
+      "level": 0.471081,
+      "change": 0.462045,
+      "data": 0.466563,
+      "sentiment": -0.221986,
+      "rank": 4,
+      "delta_rank": 2.0,
+      "trajectory": "down",
+      "setup": null
+    },
+    {
+      "theme": "Healthcare Providers",
+      "composite": 0.17009,
+      "level": 0.353267,
+      "change": -0.0130867,
+      "data": 0.17009,
+      "sentiment": -3.20673,
+      "rank": 5,
+      "delta_rank": -1.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Insurance",
+      "composite": 0.094126,
+      "level": 0.0785567,
+      "change": 0.109695,
+      "data": 0.094126,
+      "sentiment": 0.604515,
+      "rank": 6,
+      "delta_rank": -1.0,
+      "trajectory": "up",
+      "setup": null
+    },
+    {
+      "theme": "Blockchain & Crypto",
+      "composite": 0.0721337,
+      "level": 0.0963934,
+      "change": 0.047874,
+      "data": 0.0721337,
+      "sentiment": -0.321878,
+      "rank": 7,
+      "delta_rank": null,
+      "trajectory": "down",
+      "setup": null
+    },
+    {
+      "theme": "Semiconductors",
+      "composite": 0.0246741,
+      "level": 0.210885,
+      "change": -0.161537,
+      "data": 0.0246741,
+      "sentiment": 1.22359,
+      "rank": 8,
+      "delta_rank": 2.0,
+      "trajectory": "down",
+      "setup": null
+    },
+    {
+      "theme": "Biotech",
+      "composite": -0.0783595,
+      "level": 0.180079,
+      "change": -0.336798,
+      "data": -0.0783595,
+      "sentiment": 0.919378,
+      "rank": 9,
+      "delta_rank": -1.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Quantum Computing",
+      "composite": -0.149663,
+      "level": -0.063018,
+      "change": -0.236309,
+      "data": -0.149663,
+      "sentiment": 1.06401,
+      "rank": 10,
+      "delta_rank": 1.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Data Centers & Digital Infra",
+      "composite": -0.236137,
+      "level": -0.292842,
+      "change": -0.179431,
+      "data": -0.236137,
+      "sentiment": -0.673073,
+      "rank": 11,
+      "delta_rank": 1.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Food & Beverage",
+      "composite": -0.239351,
+      "level": -0.412613,
+      "change": -0.0660896,
+      "data": -0.239351,
+      "sentiment": 0.169086,
+      "rank": 12,
+      "delta_rank": -3.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Clean Energy",
+      "composite": -0.289586,
+      "level": -0.412854,
+      "change": -0.166319,
+      "data": -0.289586,
+      "sentiment": 0.723896,
+      "rank": 13,
+      "delta_rank": null,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Artificial Intelligence & Robotics",
+      "composite": -0.349914,
+      "level": -0.477678,
+      "change": -0.22215,
+      "data": -0.349914,
+      "sentiment": -0.137901,
+      "rank": 14,
+      "delta_rank": null,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Space",
+      "composite": -0.499728,
+      "level": -0.757128,
+      "change": -0.242327,
+      "data": -0.499728,
+      "sentiment": -0.256282,
+      "rank": 15,
+      "delta_rank": null,
+      "trajectory": "up",
+      "setup": null
+    },
+    {
+      "theme": "Uranium & Nuclear",
+      "composite": -0.709531,
+      "level": -0.862509,
+      "change": -0.556553,
+      "data": -0.709531,
+      "sentiment": 0.181212,
+      "rank": 16,
+      "delta_rank": 1.0,
+      "trajectory": "down",
+      "setup": null
+    },
+    {
+      "theme": "Lithium & Battery",
+      "composite": -0.77275,
+      "level": -0.87096,
+      "change": -0.67454,
+      "data": -0.77275,
+      "sentiment": -0.252766,
+      "rank": 17,
+      "delta_rank": -1.0,
+      "trajectory": "flat",
+      "setup": null
+    },
+    {
+      "theme": "Defense",
+      "composite": -1.20878,
+      "level": -1.3535,
+      "change": -1.06406,
+      "data": -1.20878,
+      "sentiment": null,
+      "rank": 18,
+      "delta_rank": null,
+      "trajectory": "flat",
+      "setup": null
+    }
+  ],
+  "config": {
+    "default_horizon": "medium",
+    "cohorts": [
+      "THEME"
+    ],
+    "horizons": [
+      {
+        "key": "medium",
+        "label": "Medium",
+        "rebalance": "M",
+        "top_n": 4,
+        "buffer_frac": 0.277778,
+        "review_dates": [
+          "2026-09-30",
+          "2026-10-30",
+          "2026-11-30",
+          "2026-12-31",
+          "2027-01-29",
+          "2027-02-26"
+        ]
+      },
+      {
+        "key": "long",
+        "label": "Long",
+        "rebalance": "2M",
+        "top_n": 5,
+        "buffer_frac": 0.444444,
+        "review_dates": [
+          "2026-09-30",
+          "2026-11-30",
+          "2027-01-29",
+          "2027-03-31",
+          "2027-05-31",
+          "2027-07-30"
+        ]
+      }
+    ],
+    "universe": [
+      {
+        "region": "THEME",
+        "theme": "Artificial Intelligence & Robotics",
+        "ticker": "BOTZ",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "XAIX",
+            "name": "Xtrackers Artificial Intelligence & Big Data UCITS ETF",
+            "isin": "IE00BGV5VN51",
+            "ter": "0.35%",
+            "issuer": "DWS",
+            "match": "close",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BGV5VN51"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Semiconductors",
+        "ticker": "SOXX",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "VVSM",
+            "name": "VanEck Semiconductor UCITS ETF",
+            "isin": "IE00BMC38736",
+            "ter": "0.35%",
+            "issuer": "VanEck",
+            "match": "close",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BMC38736"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Cybersecurity",
+        "ticker": "CIBR",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "W1TB",
+            "name": "WisdomTree Cybersecurity UCITS ETF",
+            "isin": "IE00BLPK3577",
+            "ter": "0.45%",
+            "issuer": "WisdomTree",
+            "match": "close",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BLPK3577"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Clean Energy",
+        "ticker": "ICLN",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "IQQH",
+            "name": "iShares Global Clean Energy UCITS ETF",
+            "isin": "IE00B1XNHC34",
+            "ter": "0.65%",
+            "issuer": "iShares",
+            "match": "exact",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00B1XNHC34"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Defense",
+        "ticker": "ITA",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "DFEN",
+            "name": "VanEck Defense UCITS ETF",
+            "isin": "IE000YYE6WK5",
+            "ter": "0.55%",
+            "issuer": "VanEck",
+            "match": "close",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE000YYE6WK5"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Blockchain & Crypto",
+        "ticker": "BLOK",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "DAVV",
+            "name": "VanEck Crypto and Blockchain Innovators UCITS ETF",
+            "isin": "IE00BMDKNW35",
+            "ter": "0.65%",
+            "issuer": "VanEck",
+            "match": "close",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BMDKNW35"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Uranium & Nuclear",
+        "ticker": "URA",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "URNU",
+            "name": "Global X Uranium UCITS ETF",
+            "isin": "IE000NDWFGA5",
+            "ter": "0.65%",
+            "issuer": "Global X",
+            "match": "exact",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE000NDWFGA5"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Space",
+        "ticker": "UFO",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "JEDI",
+            "name": "VanEck Space Innovators UCITS ETF",
+            "isin": "IE000YU9K6K2",
+            "ter": "0.55%",
+            "issuer": "VanEck",
+            "match": "partial",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE000YU9K6K2"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Lithium & Battery",
+        "ticker": "LIT",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "LI7U",
+            "name": "Global X Lithium & Battery Tech UCITS ETF",
+            "isin": "IE00BLCHJN13",
+            "ter": "0.60%",
+            "issuer": "Global X",
+            "match": "exact",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BLCHJN13"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Biotech",
+        "ticker": "XBI",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "2B70",
+            "name": "iShares Nasdaq US Biotechnology UCITS ETF",
+            "isin": "IE00BYXG2H39",
+            "ter": "0.35%",
+            "issuer": "iShares",
+            "match": "partial",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BYXG2H39"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Quantum Computing",
+        "ticker": "QTUM",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "QUTM",
+            "name": "VanEck Quantum Computing UCITS ETF",
+            "isin": "IE0007Y8Y157",
+            "ter": "0.55%",
+            "issuer": "VanEck",
+            "match": "close",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE0007Y8Y157"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Data Centers & Digital Infra",
+        "ticker": "DTCR",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "V9N",
+            "name": "Global X Data Center REITs & Digital Infrastructure UCITS ETF",
+            "isin": "IE00BMH5Y327",
+            "ter": "0.50%",
+            "issuer": "Global X",
+            "match": "exact",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BMH5Y327"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "AgTech & Food Innovation",
+        "ticker": "KROP",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "KROP",
+            "name": "Global X AgTech & Food Innovation UCITS ETF",
+            "isin": "IE000EBFYWX3",
+            "ter": "0.50%",
+            "issuer": "Global X",
+            "match": "exact",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE000EBFYWX3"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Insurance",
+        "ticker": "IAK",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "SC0Y",
+            "name": "Invesco European Insurance Sector UCITS ETF Acc",
+            "isin": "IE00B5MTXJ97",
+            "ter": "0.20%",
+            "issuer": "Invesco",
+            "match": "partial",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00B5MTXJ97"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Healthcare Providers",
+        "ticker": "IHF",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "QDVG",
+            "name": "iShares S&P 500 Health Care Sector UCITS ETF (Acc)",
+            "isin": "IE00B43HR379",
+            "ter": "0.15%",
+            "issuer": "iShares",
+            "match": "partial",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00B43HR379"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Gold & Precious Metals Miners",
+        "ticker": "GDX",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "G2X",
+            "name": "VanEck Gold Miners UCITS ETF",
+            "isin": "IE00BQQP9F84",
+            "ter": "0.53%",
+            "issuer": "VanEck",
+            "match": "exact",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00BQQP9F84"
+          }
+        ]
+      },
+      {
+        "region": "THEME",
+        "theme": "Shipping",
+        "ticker": "BOAT",
+        "unbuyable": true,
+        "ucits": []
+      },
+      {
+        "region": "THEME",
+        "theme": "Food & Beverage",
+        "ticker": "PBJ",
+        "unbuyable": false,
+        "ucits": [
+          {
+            "ticker": "SC03",
+            "name": "Invesco European Food & Bev Sector UCITS ETF",
+            "isin": "IE00B5MTYL84",
+            "ter": "0.20%",
+            "issuer": "Invesco",
+            "match": "partial",
+            "url": "https://www.justetf.com/en/etf-profile.html?isin=IE00B5MTYL84"
+          }
+        ]
+      }
+    ]
+  }
+}
