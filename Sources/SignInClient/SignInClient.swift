@@ -27,6 +27,13 @@ public struct SignInClient: Sendable {
     public var signOut: @Sendable () async throws -> Void
 }
 
+extension SignInClient {
+    /// Where the emailed link returns to the app. Supabase must list it under
+    /// Authentication -> URL Configuration -> Redirect URLs, or the link opens
+    /// the website instead; the scheme is registered in App/Info.plist.
+    public static let redirectURL = URL(string: "etfmomentum://login-callback")!
+}
+
 extension DependencyValues {
     public var signInClient: SignInClient {
         get { self[SignInClient.self] }

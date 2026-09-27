@@ -37,10 +37,21 @@ public final class SessionModel {
     @ObservationIgnored
     private var restoring: Task<Void, Never>?
 
+    /// A link opened twice (a double tap in Mail) is exchanged once: the
+    /// second exchange would fail on the spent link after the first signed in.
+    @ObservationIgnored
+    private var isCompletingSignIn = false
+
+    /// Requests in flight. `isWorking` stays true until the last one ends.
+    @ObservationIgnored
+    private var requestsInFlight = 0
+
     public init(onSignOut: @escaping @MainActor () async -> Void = {}) {
         self.onSignOut = onSignOut
     }
 
+    /// Reads the stored session once per launch; later calls wait for that
+    /// first read rather than repeating it.
     public func restore() async {
         if restoring == nil {
             restoring = Task { await self.restoreStoredSession() }
@@ -63,18 +74,35 @@ public final class SessionModel {
     public func sendLink(to email: String) async {
         let email = email.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !email.isEmpty else { return }
-        await perform {
+        let hadSentALink = linkSentTo != nil
+        let sent = await perform {
             try await self.signInClient.sendLink(email: email)
             self.linkSentTo = email
+        }
+        guard !sent else { return }
+        // Asking for a link replaces the key that completes the previous one,
+        // even when the request then fails (a rate limit, most likely) -- so
+        // there is no working link left to wait for.
+        linkSentTo = nil
+        if hadSentALink, let error = errorMessage {
+            errorMessage = error + " The link sent earlier no longer works; send a new one."
         }
     }
 
     /// The app was opened from a sign-in link.
     public func completeSignIn(from url: URL) async {
+        // Any page or app can open an etfmomentum:// URL; only the sign-in
+        // callback is ours to act on.
+        guard url.scheme == SignInClient.redirectURL.scheme,
+              url.host() == SignInClient.redirectURL.host()
+        else { return }
         // Finish the launch-time restore first (see `restoring`). A reader who
         // is already signed in has nothing to complete.
         await restore()
         if case .signedIn = state { return }
+        guard !isCompletingSignIn else { return }
+        isCompletingSignIn = true
+        defer { isCompletingSignIn = false }
         await perform {
             let email = try await self.signInClient.completeSignIn(url: url)
             self.linkSentTo = nil
@@ -102,21 +130,31 @@ public final class SessionModel {
     private func sessionEnded() async {
         await onSignOut()
         linkSentTo = nil
+        errorMessage = nil
         state = .signedOut
     }
 
-    private func perform(_ work: @MainActor () async throws -> Void) async {
+    /// Whether `work` finished without throwing.
+    @discardableResult
+    private func perform(_ work: @MainActor () async throws -> Void) async -> Bool {
+        requestsInFlight += 1
         isWorking = true
         errorMessage = nil
-        defer { isWorking = false }
+        defer {
+            requestsInFlight -= 1
+            isWorking = requestsInFlight > 0
+        }
         do {
             try await work()
+            return true
         } catch is CancellationError {
             // The view went away mid-request; that isn't an error to show.
+            return false
         } catch {
             // Supabase's AuthError is a LocalizedError carrying the server's own
             // message (rate limits, "Signups not allowed for otp", ...).
             errorMessage = error.localizedDescription
+            return false
         }
     }
 }

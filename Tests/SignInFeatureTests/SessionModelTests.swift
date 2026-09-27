@@ -143,6 +143,104 @@ extension BaseSuite {
             #expect(model.state == .signedIn(email: "me@example.invalid"))
         }
 
+        /// Asking again replaces the earlier link's key even when the request
+        /// fails, so the model must not keep waiting for that link.
+        @Test func aFailedResendDropsTheEarlierLink() async {
+            let sends = LockIsolated(0)
+            let model = withDependencies {
+                $0.signInClient.sendLink = { _ in
+                    let attempt = sends.withValue { $0 += 1; return $0 }
+                    if attempt > 1 { throw TestError() }
+                }
+            } operation: {
+                SessionModel()
+            }
+            await model.sendLink(to: "me@example.invalid")
+
+            await model.sendLink(to: "me@example.invalid")
+
+            #expect(model.linkSentTo == nil)
+            #expect(model.errorMessage?.hasPrefix(TestError().localizedDescription) == true)
+            #expect(model.errorMessage?.contains("no longer works") == true)
+        }
+
+        @Test(.timeLimit(.minutes(1)))
+        func aLinkOpenedTwiceIsExchangedOnce() async {
+            let gate = Gate()
+            let exchanges = LockIsolated(0)
+            let model = withDependencies {
+                $0.signInClient.currentUserEmail = { nil }
+                $0.signInClient.completeSignIn = { _ in
+                    let attempt = exchanges.withValue { $0 += 1; return $0 }
+                    await gate.wait()
+                    // A spent link fails, as the server would reject it.
+                    if attempt > 1 { throw TestError() }
+                    return "me@example.invalid"
+                }
+            } operation: {
+                SessionModel()
+            }
+            await model.restore()
+
+            let first = Task { await model.completeSignIn(from: link) }
+            let second = Task { await model.completeSignIn(from: link) }
+            for _ in 0..<100 { await Task.yield() }
+            gate.open()
+            await first.value
+            await second.value
+
+            #expect(exchanges.value == 1)
+            #expect(model.state == .signedIn(email: "me@example.invalid"))
+            #expect(model.errorMessage == nil)
+        }
+
+        /// Working until the last request ends, not the first.
+        @Test(.timeLimit(.minutes(1)))
+        func overlappingRequestsKeepTheModelWorking() async {
+            let gate = Gate()
+            let model = withDependencies {
+                $0.signInClient.currentUserEmail = { nil }
+                $0.signInClient.sendLink = { _ in await gate.wait() }
+                $0.signInClient.completeSignIn = { _ in "me@example.invalid" }
+            } operation: {
+                SessionModel()
+            }
+            await model.restore()
+            let sending = Task { await model.sendLink(to: "me@example.invalid") }
+            while !model.isWorking { await Task.yield() }
+
+            await model.completeSignIn(from: link)
+
+            #expect(model.isWorking)
+            gate.open()
+            await sending.value
+            #expect(model.isWorking == false)
+        }
+
+        // Every endpoint is unimplemented: touching any of them is an issue.
+        @Test func aURLThatIsNotTheSignInCallbackIsIgnored() async {
+            let model = SessionModel()
+
+            await model.completeSignIn(from: URL(string: "etfmomentum://somewhere-else")!)
+            await model.completeSignIn(from: URL(string: "https://example.invalid/login-callback")!)
+
+            #expect(model.state == .checking)
+            #expect(model.errorMessage == nil)
+        }
+
+        @Test func signingOutClearsAnOldError() async {
+            let model = withDependencies {
+                $0.signInClient.sendLink = { _ in throw TestError() }
+            } operation: {
+                SessionModel()
+            }
+            await model.sendLink(to: "me@example.invalid")
+
+            await model.sessionExpired()
+
+            #expect(model.errorMessage == nil)
+        }
+
         @Test func signingOutRunsTheHookEvenIfTheServerFails() async {
             let hookRan = LockIsolated(false)
             let model = withDependencies {
@@ -183,7 +281,7 @@ extension BaseSuite {
     }
 }
 
-private let link = URL(string: "etfmomentum://login-callback?code=test-code")!
+private let link = URL(string: SignInClient.redirectURL.absoluteString + "?code=test-code")!
 
 private struct TestError: LocalizedError {
     var errorDescription: String? { "Signups not allowed for otp" }
