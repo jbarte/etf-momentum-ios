@@ -10,6 +10,17 @@ public struct AppView: View {
     }
 
     public var body: some View {
+        content
+            // The emailed sign-in link (etfmomentum://login-callback, see
+            // App/Info.plist). It can arrive before the launch-time restore
+            // has finished; SessionModel orders the two.
+            .onOpenURL { url in
+                Task { await model.session.completeSignIn(from: url) }
+            }
+    }
+
+    @ViewBuilder
+    private var content: some View {
         switch model.session.state {
         case .checking:
             ProgressView()

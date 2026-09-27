@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.17.1"),
-        // v3 is unreleased and changes verifyOTP's return type and the
+        // v3 is unreleased and changes auth return types and the
         // initialSession semantics; stay on 2.x until it ships and is read.
         .package(url: "https://github.com/supabase/supabase-swift.git", .upToNextMajor(from: "2.55.2")),
     ],

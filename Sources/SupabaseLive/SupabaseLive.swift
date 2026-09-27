@@ -18,6 +18,12 @@ private let supabase = SupabaseClient(
     supabaseKey: SupabaseConfig.publishableKey
 )
 
+/// Where the emailed link sends the reader after Supabase has checked it. It
+/// must be listed under Authentication -> URL Configuration -> Redirect URLs,
+/// or Supabase falls back to the website. The scheme is registered in
+/// App/Info.plist.
+let signInRedirectURL = URL(string: "etfmomentum://login-callback")!
+
 extension SignInClient: DependencyKey {
     public static let liveValue = Self(
         currentUserEmail: {
@@ -29,12 +35,23 @@ extension SignInClient: DependencyKey {
             // session the server has really rejected (ScoresError.signedOut).
             supabase.auth.currentSession?.user.email
         },
-        sendCode: { email in
+        sendLink: { email in
             // Invite-only, as on the web (auth.js): never create an account.
-            try await supabase.auth.signInWithOTP(email: email, shouldCreateUser: false)
+            // supabase-swift uses the PKCE flow: it keeps a code verifier on
+            // this device, so the link only completes here, and a newer link
+            // replaces the verifier of an older one.
+            try await supabase.auth.signInWithOTP(
+                email: email,
+                redirectTo: signInRedirectURL,
+                shouldCreateUser: false
+            )
         },
-        verify: { email, code in
-            _ = try await supabase.auth.verifyOTP(email: email, token: code, type: .email)
+        completeSignIn: { url in
+            // An expired or used link arrives as ...#error_description=...,
+            // which this throws as the server's message.
+            let session = try await supabase.auth.session(from: url)
+            // Always set for a user who signed in by email.
+            return session.user.email ?? ""
         },
         signOut: {
             try await supabase.auth.signOut()

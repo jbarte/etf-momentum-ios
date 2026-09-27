@@ -9,30 +9,34 @@ extension SignInClient: TestDependencyKey {
 }
 
 extension SignInClient {
-    /// A session exists; sending, verifying and signing out all succeed.
+    /// A session exists; sending a link, completing sign-in and signing out
+    /// all succeed.
     public static func signedIn(email: String) -> Self {
         Self(
             currentUserEmail: { email },
-            sendCode: { _ in },
-            verify: { _, _ in },
+            sendLink: { _ in },
+            completeSignIn: { _ in email },
             signOut: {}
         )
     }
 
-    /// No session yet; sending and verifying a code succeed.
-    public static let signedOut = Self(
-        currentUserEmail: { nil },
-        sendCode: { _ in },
-        verify: { _, _ in },
-        signOut: {}
-    )
+    /// No session yet; sending a link succeeds, and opening it signs in as
+    /// `email`.
+    public static func signedOut(linkSignsInAs email: String = "me@example.invalid") -> Self {
+        Self(
+            currentUserEmail: { nil },
+            sendLink: { _ in },
+            completeSignIn: { _ in email },
+            signOut: {}
+        )
+    }
 
-    /// No session, and sending or verifying a code throws `error`.
+    /// No session, and sending a link or completing sign-in throws `error`.
     public static func failing(_ error: any Error) -> Self {
         Self(
             currentUserEmail: { nil },
-            sendCode: { _ in throw error },
-            verify: { _, _ in throw error },
+            sendLink: { _ in throw error },
+            completeSignIn: { _ in throw error },
             signOut: {}
         )
     }

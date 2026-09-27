@@ -20,7 +20,7 @@ extension BaseSuite {
 
         /// No session at launch (e.g. revoked while the app was closed) also
         /// forgets the previous session's cached board.
-        @Test(.dependency(\.signInClient, .signedOut))
+        @Test(.dependency(\.signInClient, .signedOut()))
         func restoreWithNoSessionIsSignedOutAndRunsTheHook() async {
             let hookRan = LockIsolated(false)
             let model = SessionModel(onSignOut: { hookRan.setValue(true) })
@@ -31,18 +31,18 @@ extension BaseSuite {
             #expect(hookRan.value)
         }
 
-        @Test func sendCodeTrimsAndLowercasesTheEmail() async {
+        @Test func sendLinkTrimsAndLowercasesTheEmail() async {
             let sentTo = LockIsolated<String?>(nil)
             let model = withDependencies {
-                $0.signInClient.sendCode = { email in sentTo.setValue(email) }
+                $0.signInClient.sendLink = { email in sentTo.setValue(email) }
             } operation: {
                 SessionModel()
             }
 
-            await model.sendCode(to: "  Me@Example.INVALID \n")
+            await model.sendLink(to: "  Me@Example.INVALID \n")
 
             #expect(sentTo.value == "me@example.invalid")
-            #expect(model.codeSentTo == "me@example.invalid")
+            #expect(model.linkSentTo == "me@example.invalid")
             #expect(model.errorMessage == nil)
             #expect(model.isWorking == false)
         }
@@ -51,28 +51,96 @@ extension BaseSuite {
         func aRejectedEmailShowsTheServersMessage() async {
             let model = SessionModel()
 
-            await model.sendCode(to: "stranger@example.invalid")
+            await model.sendLink(to: "stranger@example.invalid")
 
-            #expect(model.codeSentTo == nil)
+            #expect(model.linkSentTo == nil)
             #expect(model.errorMessage == TestError().localizedDescription)
             #expect(model.isWorking == false)
         }
 
-        @Test func verifyingTheCodeSignsIn() async {
-            let verified = LockIsolated<[String]>([])
+        @Test func openingTheLinkSignsIn() async {
+            let opened = LockIsolated<URL?>(nil)
             let model = withDependencies {
-                $0.signInClient.sendCode = { _ in }
-                $0.signInClient.verify = { email, code in verified.setValue([email, code]) }
+                $0.signInClient.currentUserEmail = { nil }
+                $0.signInClient.sendLink = { _ in }
+                $0.signInClient.completeSignIn = { url in
+                    opened.setValue(url)
+                    return "me@example.invalid"
+                }
+            } operation: {
+                SessionModel()
+            }
+            await model.restore()
+            await model.sendLink(to: "me@example.invalid")
+
+            await model.completeSignIn(from: link)
+
+            #expect(opened.value == link)
+            #expect(model.state == .signedIn(email: "me@example.invalid"))
+            #expect(model.linkSentTo == nil)
+        }
+
+        /// The app was closed while the reader was in Mail, so the link is what
+        /// launches it: nothing was sent in this run, and the launch-time
+        /// restore hasn't happened yet.
+        @Test(.dependency(\.signInClient, .signedOut(linkSignsInAs: "me@example.invalid")))
+        func aLinkThatLaunchesTheAppSignsIn() async {
+            let model = SessionModel()
+
+            await model.completeSignIn(from: link)
+
+            #expect(model.state == .signedIn(email: "me@example.invalid"))
+        }
+
+        /// The restore finding no stored session must not land after the link
+        /// has signed in, sending the reader back to the sign-in screen.
+        @Test(.timeLimit(.minutes(1)))
+        func aSlowRestoreCannotUndoTheLinksSignIn() async {
+            let gate = Gate()
+            let restoreStarted = LockIsolated(false)
+            let lookups = LockIsolated(0)
+            let model = withDependencies {
+                $0.signInClient.currentUserEmail = {
+                    lookups.withValue { $0 += 1 }
+                    restoreStarted.setValue(true)
+                    await gate.wait()
+                    return nil
+                }
+                $0.signInClient.completeSignIn = { _ in "me@example.invalid" }
             } operation: {
                 SessionModel()
             }
 
-            await model.sendCode(to: "me@example.invalid")
-            await model.verify(code: "123456")
+            let restoring = Task { await model.restore() }
+            while !restoreStarted.value { await Task.yield() }
+            let signingIn = Task { await model.completeSignIn(from: link) }
+            for _ in 0..<100 { await Task.yield() }
+            gate.open()
+            await restoring.value
+            await signingIn.value
 
-            #expect(verified.value == ["me@example.invalid", "123456"])
             #expect(model.state == .signedIn(email: "me@example.invalid"))
-            #expect(model.codeSentTo == nil)
+            #expect(lookups.value == 1)
+        }
+
+        @Test(.dependency(\.signInClient, .failing(TestError())))
+        func anExpiredLinkShowsTheServersMessage() async {
+            let model = SessionModel()
+
+            await model.completeSignIn(from: link)
+
+            #expect(model.state == .signedOut)
+            #expect(model.errorMessage == TestError().localizedDescription)
+        }
+
+        // completeSignIn is left unimplemented: calling it would be an issue.
+        @Test(.dependency(\.signInClient.currentUserEmail, { "me@example.invalid" }))
+        func aLinkWhileSignedInIsIgnored() async {
+            let model = SessionModel()
+
+            await model.completeSignIn(from: link)
+
+            #expect(model.state == .signedIn(email: "me@example.invalid"))
         }
 
         @Test func signingOutRunsTheHookEvenIfTheServerFails() async {
@@ -101,19 +169,13 @@ extension BaseSuite {
             #expect(model.state == .signedOut)
         }
 
-        @Test(arguments: [("123456", true), ("1234567890", true), ("12345", false),
-                          ("12345678901", false), ("12345a", false)])
-        func codeLengthFollowsSupabasesConfigurableRange(code: String, plausible: Bool) {
-            #expect(SessionModel.isPlausibleCode(code) == plausible)
-        }
-
         // No override: the test value is unimplemented, so calling it is
         // reported as an issue. This proves the tripwire works.
         @Test func unstubbedClientReportsIssue() async {
             let model = SessionModel()
 
             await withKnownIssue {
-                await model.sendCode(to: "me@example.invalid")
+                await model.sendLink(to: "me@example.invalid")
             }
 
             #expect(model.errorMessage != nil)
@@ -121,6 +183,23 @@ extension BaseSuite {
     }
 }
 
+private let link = URL(string: "etfmomentum://login-callback?code=test-code")!
+
 private struct TestError: LocalizedError {
     var errorDescription: String? { "Signups not allowed for otp" }
+}
+
+/// Holds a stubbed call until the test opens it.
+private final class Gate: Sendable {
+    private let isOpen = LockIsolated(false)
+
+    func open() {
+        isOpen.setValue(true)
+    }
+
+    func wait() async {
+        while !isOpen.value {
+            await Task.yield()
+        }
+    }
 }
