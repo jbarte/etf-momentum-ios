@@ -32,6 +32,11 @@ the launch argument `-UseStubData` to run on invented data without signing in.
 On an iPhone with a free Apple account, pick your Personal Team under Signing &
 Capabilities; the install expires after 7 days, and running it again renews it.
 
+Sign-in emails a link that opens the app (`etfmomentum://login-callback`).
+Supabase must list that URL under Authentication → URL Configuration →
+Redirect URLs, or the link opens the website instead. Open the email on the
+device that asked for it; in the simulator, paste the link into Safari there.
+
 ## Test
 
     swift test

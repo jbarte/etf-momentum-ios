@@ -29,12 +29,24 @@ extension SignInClient: DependencyKey {
             // session the server has really rejected (ScoresError.signedOut).
             supabase.auth.currentSession?.user.email
         },
-        sendCode: { email in
+        sendLink: { email in
             // Invite-only, as on the web (auth.js): never create an account.
-            try await supabase.auth.signInWithOTP(email: email, shouldCreateUser: false)
+            // supabase-swift uses the PKCE flow: it keeps a code verifier on
+            // this device, so the link only completes here, and a newer link
+            // replaces the verifier of an older one.
+            try await supabase.auth.signInWithOTP(
+                email: email,
+                redirectTo: SignInClient.redirectURL,
+                shouldCreateUser: false
+            )
         },
-        verify: { email, code in
-            _ = try await supabase.auth.verifyOTP(email: email, token: code, type: .email)
+        completeSignIn: { url in
+            // An expired or used link arrives as ...#error_description=...,
+            // which this throws as the server's message.
+            let session = try await supabase.auth.session(from: url)
+            // Always set for a user who signed in by email; never invent one.
+            guard let email = session.user.email else { throw SignedInWithoutEmail() }
+            return email
         },
         signOut: {
             try await supabase.auth.signOut()
@@ -61,6 +73,10 @@ extension ScoresClient: DependencyKey {
                 .value
         }
     )
+}
+
+private struct SignedInWithoutEmail: LocalizedError {
+    var errorDescription: String? { "Signed in, but the account has no email address." }
 }
 
 /// Whether an error from `auth.session` means the reader is really signed out:

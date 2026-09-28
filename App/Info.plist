@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Merged with the generated Info.plist (GENERATE_INFOPLIST_FILE), which
+	     cannot express URL types. The emailed sign-in link returns here; see
+	     signInRedirectURL in Sources/SupabaseLive. Kept outside the
+	     synchronised ETFMomentum folder so it isn't copied as a resource. -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>io.github.jbarte.etfmomentum.signin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>etfmomentum</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
