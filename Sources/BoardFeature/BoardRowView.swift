@@ -22,15 +22,17 @@ struct BoardRowView: View {
                     if let setup = row.setup, !(setup == .entry && row.unbuyable) {
                         SetupBadge(setup: setup)
                     }
+                    // Beside the name, as on the web (.unbuyable-badge). In the
+                    // caption line below it wrapped onto three lines.
+                    if row.unbuyable {
+                        UnbuyableBadge()
+                    }
                 }
                 HStack(spacing: 6) {
                     if let ticker = row.ticker {
                         Text(ticker).font(.caption.monospaced())
                     }
                     Text("\(row.trajectory.glyph) \(row.trajectory.word)")
-                    if row.unbuyable {
-                        Text("⊘ not buyable in EU")
-                    }
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -87,6 +89,22 @@ struct SetupBadge: View {
             .padding(.vertical, 2)
             .background(Capsule().fill(color.opacity(0.18)))
             .foregroundStyle(color)
+    }
+}
+
+/// No UCITS equivalent: scored, but never an entry (config/themes.yaml
+/// `unbuyable`). Shorter than the web's "not buyable in EU", which next to the
+/// name left room for only "Shi…" on a 6.3" iPhone; VoiceOver reads it in full.
+struct UnbuyableBadge: View {
+    var body: some View {
+        Text("⊘ not in EU")
+            .accessibilityLabel("not buyable in EU")
+            .font(.caption2.weight(.medium))
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
+            .background(Capsule().fill(Color.secondary.opacity(0.12)))
+            .foregroundStyle(.secondary)
+            .fixedSize()
     }
 }
 
