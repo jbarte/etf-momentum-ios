@@ -2,7 +2,7 @@ import Dependencies
 import DependenciesMacros
 import MomentumKit
 
-/// Reads `v_recent_scores`: the last 6 scans, every region. Signed-in only.
+/// Reads `v_recent_scores`: the last 20 scans (sector_momentum's HISTORY_SCANS, the window Python reads), every region. Signed-in only.
 ///
 /// Interface only; the live implementation lives in `SupabaseLive`.
 @DependencyClient
