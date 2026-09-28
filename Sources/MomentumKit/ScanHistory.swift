@@ -9,10 +9,10 @@ import Foundation
 /// Sunday and Monday scans replay Friday's close; against a replay every delta
 /// reads "—". Python compares against the previous DISTINCT scan instead.
 ///
-/// The app only ever sees v_recent_scores' last 6 raw scans. On a Monday that
-/// is as few as 3 distinct ones, so the Trend can use fewer points than the
-/// server's -- a data limit, not a rule difference: given the same scans, this
-/// and Python agree (the fixture's "six raw scans, three distinct" case).
+/// The app sees v_recent_scores' last 20 raw scans -- sector_momentum's
+/// HISTORY_SCANS, the same window the baked board is built from -- so the
+/// Trend has its five distinct scans on every weekday. (Until 2026-09-28 the
+/// view returned 6, which held only 4 distinct scans Mon-Thu.)
 public struct ScanHistory: Sendable {
     public let latestScanID: Int
     /// The latest scan's rows, in input order.
@@ -26,8 +26,8 @@ public struct ScanHistory: Sendable {
     /// exceed this, the pipeline looks stuck and no delta is shown rather than a
     /// stale move. Only the trailing run counts (sector_momentum#314): replays
     /// earlier in the window, such as holidays and weekends, must not blank a
-    /// healthy board. Out of reach with the app's 6 scans, kept so the rule
-    /// reads, and behaves, the same as Python's.
+    /// healthy board. Reachable since the view returns 20 scans; the fixture's
+    /// "stuck pipeline" and "longest healthy replay run" boards pin both sides of it.
     static let maxDuplicateRun = 7
 
     /// `nil` when there are no rows at all.
